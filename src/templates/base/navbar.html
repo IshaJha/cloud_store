@@ -1,0 +1,61 @@
+{% url "index_home" as index_url %}
+{% url "contact" as contact_url %}
+{% url "products:productsList" as products_url %}
+{% url "cart:cart" as cart_url %}
+{% url "order:orderList" as orderList_url %}<!-- for order list  order:orderList -->
+{% url "accounts:logout" as logout_url %}<!-- for order list  order:orderList -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{ index_url }}">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1AWHBZm69_9TbnmO68n6yrC0f_3AwVlUq5g&usqp=CAU" width="40" height="40" style="border-radius: 50%;" class="d-inline-block align-top" alt="">
+        <!-- <img src="https://recruiter.bigshyft.com/companies/45/logo/nykaa" width="40" height="40" style="border-radius: 50%;" class="d-inline-block align-top" alt=""> -->
+        {% if brand_name %}{{ brand_name }} {% else %} eCommerce {% endif %}
+        <!-- My Contact Page -->
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == index_url %}active{% endif %}" aria-current="page" href="{{ index_url }}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == contact_url %}active{% endif %}" href="{{ contact_url }}">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == products_url %}active{% endif %}" href="{{ products_url }}">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == cart_url %}active{% endif %}" href="{{ cart_url }}">Carts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == orderList_url %}active{% endif %}" href="{{ orderList_url }}">My Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == logout_url %}active{% endif %}" href="{{ logout_url }}">Logout</a>
+          </li>
+         <!--  <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li> -->
+        </ul>
+        <!-- <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> -->
+      </div>
+    </div>
+  </nav>

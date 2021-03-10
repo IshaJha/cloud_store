@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content_head %}
+<title>Product list</title>
+{% endblock %} 
+
+{% block content %}
+    <div class="container  mt-5">
+        <div class="card">
+            <div class="card-body mx-2">
+                {% for product in product_list %}
+                    <a href="{{ product.get_absolute_url }}" >{{ product }}</a> <br/>
+                {% endfor %}
+            </div>
+        </div>
+    </div> 
+    
+{% endblock %}

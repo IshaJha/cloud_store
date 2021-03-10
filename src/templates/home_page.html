@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content_head %}
+    <title>Hello, world!</title>
+{% endblock %}
+
+</head>
+<body>
+{% block content %}
+<div class="container  mt-5">
+    <div class="card">
+        <div class="card-body mx-auto">
+            {% if request.user.is_authenticated %}
+                <h1> Welcome to Cloud Store {{ request.user }}!!</h1> 
+            {% endif %}
+            {% if error %}
+                {{ error }}
+            {% endif %}
+        </div>
+    </div>
+</div> 
+    
+{% endblock %}

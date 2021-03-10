@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content_head %}
+    <title>Order List</title>
+{% endblock %}
+
+</head>
+<body>
+{% block content %}
+<div class="container  mt-5">
+    {% for obj in order_obj %}
+        <div class="card mt-1">    
+            <!-- <div class="card-body mx-auto" style="width: 280px;"> -->
+             <!-- GET order detail URL -->
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">{{ obj.order_placed_date }}</div>
+                        <div class="col">
+                            <form method="POST" action="{% url 'order:orderDetails' %}">{% csrf_token %}
+                                <input type="hidden" name="order_pk" value="{{ obj.pk }}"/>
+                                <button type="submit" class="btn btn-success">View Order</button>
+                            </form>
+                            
+                        </div>
+                        
+                      
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+</div> 
+    
+{% endblock %}

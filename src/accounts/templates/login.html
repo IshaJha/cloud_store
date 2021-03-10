@@ -1,0 +1,47 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    {% include "base/css.html" %}
+    <title>Cloud Store</title>
+
+  </head>
+  <body>
+    
+    <div class="container  mt-5 mb-5">
+        <div class="card mt-1">
+            <div class="row">
+                {% if error %}
+                <div class="col">{{ error }}</div>
+                {% endif %}
+            </div>
+            <div class="card-body">
+                <form action="{% url 'accounts:home' %}" method="POST">{% csrf_token %}
+                    {{ form }}
+                    <button type="submit" class="btn btn-success mt-2">LogIn</button>
+                </form>
+                <div class="row mt-2">
+                    <p>Not registered as a user,<a href="{% url 'accounts:sign-up' %}">Register Here</a></p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    {% include "base/js.html" %}
+    
+  </body>
+</html>
+
+
+
+
+
+

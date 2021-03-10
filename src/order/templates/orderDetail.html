@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content_head %}
+<title>Order Detail</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container  mt-5">
+        {% for cart in cart_objs %}
+            <div class="card mt-1">
+                <div class="card-body mx-2">
+                    <a href="{{ cart.product.get_absolute_url }}">
+                        <div class="row">
+                            <div class="col">{{ cart.product }} </div>
+                            <div class="col">{{ cart.quantity }}</div>
+                            <div class="col">{{ cart.product.price }}</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
+
+

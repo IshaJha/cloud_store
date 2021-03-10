@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content_head %}
+<title>{{ product.title }}</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container  mt-5">
+        <div class="card">
+            <div class="card-body mx-2">
+                <div class="row">
+                    <div class="col">
+                        <img src='{{ product.image.url }}' class='img-fluid' />
+                    </div>
+                    <div class="col">
+                        {{ product.title }}<br/>
+                        <!-- {{ product.slug }}<br/> -->
+                        {{ product.description }}<br/>
+                        {{ product.price }}<br/>
+                        <form action="{% url 'cart:updateCart' %}" method="POST" >{% csrf_token %}
+                            <input type="hidden" name="product_id" value='{{ product.id }}'>
+                            <input type="hidden" name="action_type" value='add_to_cart'>
+                            <button type="submit" class="btn btn-success mt-2">Add to cart</button><!-- Add to cart -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+

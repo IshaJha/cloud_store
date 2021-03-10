@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content_head %}
+    <title>Hello, world!</title>
+{% endblock %}
+
+</head>
+<body>
+{% block content %}
+<div class="container  mt-5">
+    <div class="card">
+        <div class="card-body mx-auto" style="width: 280px;">
+            <form method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+</div> 
+    
+{% endblock %}
